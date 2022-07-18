@@ -2,3 +2,4 @@
 log/logging.txt
 ve/*
 input.txt
+api/__pycache__/

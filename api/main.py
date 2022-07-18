@@ -1,7 +1,7 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify
 from utils import Solution
 import multiprocessing as mp
-
+import os, sys
 app = Flask(__name__)
 
 
@@ -20,10 +20,11 @@ def home(n):
         p2.start()
         for x in work:
             x.join()
-        return jsonify({'data': "success"})
+        return jsonify({'status': 200, 'multi_output_file': r'{}\output\multiply_data.json'.format(app.instance_path),
+                        'add_output_file': r'{}\output\add_data.txt'.format(app.instance_path)})
     except Exception as e:
         return jsonify({'error': e})
 
 
 if __name__ == '__main__':
-    app.run(host="localhost", debug=True)
+    app.run(host="localhost", debug=True, port=5002)

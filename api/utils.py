@@ -31,7 +31,6 @@ class Solution:
         mul_file.write(json.dumps(num_list))
         mul_file.close()
         logger.info("Time taken for Multiplication Process : {}".format(datetime.now() - start))
-
     
     def add_data(self):
         start = datetime.now()
